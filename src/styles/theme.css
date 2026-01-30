@@ -39,6 +39,14 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  
+  /* Custom cool color palette */
+  --cool-blue: #5B8FA3;
+  --cool-teal: #4ECDC4;
+  --cool-green: #95B8A8;
+  --cool-gray: #6B7280;
+  --cool-slate: #475569;
+  --off-white: #F8FAFC;
 }
 
 .dark {
