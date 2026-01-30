@@ -70,13 +70,10 @@ export function AboutSection() {
         <h2 className="text-3xl md:text-4xl text-gray-900 mb-6 md:mb-8">About</h2>
         <div className="max-w-3xl">
           <p className="text-lg text-gray-700 mb-6">
-            I'm Alex Chen—an engineer turned strategy consultant turned entrepreneur. I've spent the last decade building products, advising companies, and launching ventures at the intersection of technology and human behavior.
+            I'm Swathi Saravanan, a mechanical engineering graduate student at the University of Pennsylvania. I graduated from IIT Madras in 2024 with a B.Tech in Mechanical Engineering.
           </p>
           <p className="text-lg text-gray-700 mb-6">
-            I think in systems. I build to learn. I write to clarify. This site is where I explore ideas outside my main work—the sidequests that make the main quest more interesting.
-          </p>
-          <p className="text-lg text-gray-700">
-            Currently working on tools for better decision-making and exploring the overlap between product strategy and behavioral design.
+            You can find my professional portfolio <a href=" https://swathisarav.github.io/portfolio/">here</a>.
           </p>
         </div>
       </div>

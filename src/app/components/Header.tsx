@@ -51,7 +51,7 @@ export function Header() {
     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200/50">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <div className="font-medium text-gray-900">
-          Alex Chen
+          Swathi Saravanan
         </div>
         
         {/* Desktop Navigation */}
