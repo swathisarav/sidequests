@@ -6,11 +6,11 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-16">
         <blockquote className="text-center mb-6 md:mb-8">
           <p className="text-lg md:text-xl text-gray-700 italic max-w-2xl mx-auto">
-            "The only way to do great work is to love what you do, and to never stop learning."
+            "Twenty years from now you will be more disappointed by the things that you didn't do than by the ones you did do." - H. Jackson Brown Jr.
           </p>
         </blockquote>
         <div className="text-center text-sm text-gray-500">
-          © Alex Chen {currentYear}. All rights reserved.
+          © Swathi Saravanan {currentYear}. All rights reserved.
         </div>
       </div>
     </footer>
