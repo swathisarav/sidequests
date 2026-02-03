@@ -29,8 +29,8 @@ export default function App() {
       </div>
 
       {/* Additional sections */}
-      <WritingSection />
-      <ExperimentsSection />
+      {/* <WritingSection /> */}
+      {/* <ExperimentsSection /> */}
       <AboutSection />
       
       <Footer />
