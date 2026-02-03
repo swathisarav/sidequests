@@ -70,7 +70,7 @@ export function AboutSection() {
         <h2 className="text-3xl md:text-4xl text-gray-900 mb-6 md:mb-8">About</h2>
         <div className="max-w-3xl">
           <p className="text-lg text-gray-700 mb-6">
-            Hi, I'm Swathi. I'm someone who loves a nature getaway and contemplating about life. As someone who is addicted to the novice high, you'll often see me picking up new hobbies and trying out new things.
+            Hi, I'm Swathi. I'm a Mechanical Engineering grad student at UPenn, focusing on developing a strong business and strategy perspective. I love a nature getaway and contemplating about life. As someone who is addicted to the novice high, you'll often see me picking up new hobbies and trying out new things.
           </p>
           <p className="text-lg text-gray-700 mb-6">
             You can find my professional portfolio <a href=" https://swathisarav.github.io/portfolio/">here</a>.
