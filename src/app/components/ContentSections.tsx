@@ -24,37 +24,20 @@ export function WritingSection() {
   );
 }
 
-export function ExperimentsSection() {
+export function BuildsSection() {
   return (
     <section id="experiments" className="scroll-mt-20 py-12 md:py-16 px-4 sm:px-6 bg-gray-50">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl text-gray-900 mb-6 md:mb-8">Experiments</h2>
+        <h2 className="text-3xl md:text-4xl text-gray-900 mb-6 md:mb-8">Builds</h2>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
           <div className="bg-white rounded-xl p-6 shadow-sm">
             <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-4">
-              <span className="text-2xl">🧪</span>
+              <span className="text-2xl">🎸</span>
             </div>
-            <h3 className="text-lg text-gray-900 mb-2">Decision Framework Tool</h3>
+            <h3 className="text-lg text-gray-900 mb-2">Guitar Log</h3>
             <p className="text-sm text-gray-600">
-              An interactive tool for evaluating complex decisions using weighted criteria.
-            </p>
-          </div>
-          <div className="bg-white rounded-xl p-6 shadow-sm">
-            <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-              <span className="text-2xl">📊</span>
-            </div>
-            <h3 className="text-lg text-gray-900 mb-2">Startup Metrics Dashboard</h3>
-            <p className="text-sm text-gray-600">
-              A minimal dashboard for tracking the metrics that actually matter.
-            </p>
-          </div>
-          <div className="bg-white rounded-xl p-6 shadow-sm">
-            <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-              <span className="text-2xl">✨</span>
-            </div>
-            <h3 className="text-lg text-gray-900 mb-2">Knowledge Graph Builder</h3>
-            <p className="text-sm text-gray-600">
-              Visualizing connections between ideas, books, and concepts.
+              An interactive tool to plan and track your Guitar Practices.
+              <a href="https://guitar-ilemnite.base44.app">Here</a>
             </p>
           </div>
         </div>

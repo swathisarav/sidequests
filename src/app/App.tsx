@@ -2,7 +2,7 @@ import { Header } from '@/app/components/Header';
 import { Hero } from '@/app/components/Hero';
 import { BlogFeed } from '@/app/components/BlogFeed';
 import { VisualSidebar } from '@/app/components/VisualSidebar';
-import { WritingSection, ExperimentsSection, AboutSection } from '@/app/components/ContentSections';
+import { WritingSection, BuildsSection, AboutSection } from '@/app/components/ContentSections';
 import { Footer } from '@/app/components/Footer';
 
 export default function App() {
@@ -30,7 +30,7 @@ export default function App() {
 
       {/* Additional sections */}
       {/* <WritingSection /> */}
-      {/* <ExperimentsSection /> */}
+      <BuildsSection />
       <AboutSection />
       
       <Footer />
