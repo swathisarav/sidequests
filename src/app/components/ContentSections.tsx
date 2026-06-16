@@ -37,8 +37,13 @@ export function BuildsSection() {
             <h3 className="text-lg text-gray-900 mb-2">Guitar Log</h3>
             <p className="text-sm text-gray-600">
               An interactive tool to plan and track your Guitar Practices.
-              <a href="https://guitar-ilemnite.base44.app">Here</a>
             </p>
+            <a
+              href="https://guitar-ilemnite.base44.app"
+              className="modern-link"
+            >
+              Click Here
+            </a>
           </div>
         </div>
       </div>
@@ -56,7 +61,7 @@ export function AboutSection() {
             Hi, I'm Swathi. I'm a Mechanical Engineering grad student at UPenn, focusing on developing a strong business and strategy perspective. I love a nature getaway and contemplating about life. As someone who is addicted to the novice high, you'll often see me picking up new hobbies and trying out new things.
           </p>
           <p className="text-lg text-gray-700 mb-6">
-            You can find my professional portfolio <a href=" https://swathisarav.github.io/portfolio/">here</a>.
+            You can find my portfolio <a href=" https://swathisarav.github.io/portfolio/" className="modern-link">here</a>.
           </p>
         </div>
       </div>
