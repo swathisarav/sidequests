@@ -12,9 +12,9 @@ const blogPosts: BlogPost[] = [
   
   {
     id: '1',
-    title: 'What is this about?',
+    title: 'Soon...',
     content: ( <>
-    <p>A page for my reflections.</p>
+    <p>...</p>
     </>
     ),
     image: 'https://images.unsplash.com/photo-1505209487757-5114235191e5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsJTIwd29ya3NwYWNlJTIwZGVzayUyMGxhcHRvcHxlbnwxfHx8fDE3Njk3NjA4MjF8MA&ixlib=rb-4.1.0&q=80&w=1080',
