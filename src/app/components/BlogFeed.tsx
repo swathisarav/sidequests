@@ -12,7 +12,7 @@ const blogPosts: BlogPost[] = [
   
   {
     id: '1',
-    title: 'About',
+    title: 'What is this about?',
     content: ( <>
     <p>A page for my reflections.</p>
     </>

@@ -9,12 +9,12 @@ interface VisualPost {
 const visualPosts: VisualPost[] = [
   {
     id: '1',
-    image: 'https://images.unsplash.com/photo-1573134005528-db6a82e51995?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2ZmZWUlMjBjdXAlMjBtb2Rlcm4lMjBtaW5pbWFsfGVufDF8fHx8MTc2OTc2MDgyMnww&ixlib=rb-4.1.0&q=80&w=1080',
-    caption: 'Morning ritual',
+    image: 'https://itaesahinwgttopvkkip.supabase.co/storage/v1/object/public/SideQuest_Carousel/Netravati.jpg',
+    caption: 'Trekked to the Netravati Peak. Mountains and the calm they bring with the views.',
   },
   {
     id: '2',
-    image: 'https://images.unsplash.com/photo-1665043548178-8e606eca11eb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcmNoaXRlY3R1cmUlMjBtaW5pbWFsJTIwbW9kZXJufGVufDF8fHx8MTc2OTczMzAzNXww&ixlib=rb-4.1.0&q=80&w=1080',
+    image: 'https://itaesahinwgttopvkkip.supabase.co/storage/v1/object/public/SideQuest_Carousel/netravati_me.png',
   },
   {
     id: '3',
