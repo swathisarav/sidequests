@@ -9,12 +9,13 @@ interface VisualPost {
 const visualPosts: VisualPost[] = [
   {
     id: '1',
-    image: 'https://itaesahinwgttopvkkip.supabase.co/storage/v1/object/public/SideQuest_Carousel/Netravati.jpg',
-    caption: 'Trekked to the Netravati Peak. Mountains and the calm they bring with the views.',
+    image: 'https://itaesahinwgttopvkkip.supabase.co/storage/v1/object/public/SideQuest_Carousel/netravati_me.png',
   },
   {
     id: '2',
-    image: 'https://itaesahinwgttopvkkip.supabase.co/storage/v1/object/public/SideQuest_Carousel/netravati_me.png',
+
+    image: 'https://itaesahinwgttopvkkip.supabase.co/storage/v1/object/public/SideQuest_Carousel/Netravati.jpg',
+    caption: 'Trekked to the Netravati Peak.\n Mountains and the calm they bring.',
   },
   {
     id: '3',
