@@ -36,13 +36,13 @@ export function BuildsSection() {
             </div>
             <h3 className="text-lg text-gray-900 mb-2">Guitar Log</h3>
             <p className="text-sm text-gray-600">
-              An interactive tool to plan and track your Guitar Practices.
+              An tool to plan and track your Guitar Practices.
             </p>
             <a
               href="https://guitar-ilemnite.base44.app"
               className="modern-link"
             >
-              Click Here
+              Here
             </a>
           </div>
         </div>
@@ -58,7 +58,7 @@ export function AboutSection() {
         <h2 className="text-3xl md:text-4xl text-gray-900 mb-6 md:mb-8">About</h2>
         <div className="max-w-3xl">
           <p className="text-lg text-gray-700 mb-6">
-            Hi, I'm Swathi. I write about my adventures and ideas. An Engineer by education, I love problem solving and creating.
+            Hi, I'm Swathi. I write about my adventures and ideas.
           </p>
           <p className="text-lg text-gray-700 mb-6">
             You can find my portfolio <a href=" https://swathisarav.github.io/portfolio/" className="modern-link">here</a>.
