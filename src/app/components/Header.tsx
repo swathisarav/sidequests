@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 
 export function Header() {
   const [activeSection, setActiveSection] = useState('sidequests');
@@ -6,8 +7,8 @@ export function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['sidequests', 'writing', 'builds', 'about'];
-      const scrollPosition = window.scrollY + 100;
+      const sections = ['sidequests', 'builds', 'about'];
+      const scrollPosition = window.scrollY + 120;
 
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -32,40 +33,52 @@ export function Header() {
     if (element) {
       const offset = 80;
       const elementPosition = element.offsetTop - offset;
-      window.scrollTo({
-        top: elementPosition,
-        behavior: 'smooth'
-      });
+      window.scrollTo({ top: elementPosition, behavior: 'smooth' });
       setMobileMenuOpen(false);
     }
   };
 
   const navItems = [
     { id: 'sidequests', label: 'Sidequests' },
-    { id:'builds', label: "Builds"},
-    { id: 'about', label: 'About' }
+    { id: 'builds', label: 'Builds' },
+    { id: 'about', label: 'About' },
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200/50">
+    <header className="sticky top-0 z-50 border-b border-[var(--line)] bg-[var(--paper)]/80 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <div className="font-medium text-gray-900">
-          Swathi Saravanan
-        </div>
-        
+        <button
+          onClick={() => scrollToSection('sidequests')}
+          className="group flex items-center gap-2 text-left"
+        >
+          <span className="text-[var(--accent)] transition-transform duration-500 group-hover:rotate-180">
+            &#10022;
+          </span>
+          <span className="font-display text-lg tracking-tight text-[var(--ink)]">
+            Swathi Saravanan
+          </span>
+        </button>
+
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex gap-8">
+        <nav className="hidden md:flex gap-1">
           {navItems.map(({ id, label }) => (
             <button
               key={id}
               onClick={() => scrollToSection(id)}
-              className={`transition-colors ${
+              className={`relative px-3 py-1.5 text-sm transition-colors ${
                 activeSection === id
-                  ? 'text-teal-600'
-                  : 'text-gray-600 hover:text-gray-900'
+                  ? 'text-[var(--ink)]'
+                  : 'text-[var(--ink-soft)] hover:text-[var(--ink)]'
               }`}
             >
               {label}
+              {activeSection === id && (
+                <motion.span
+                  layoutId="nav-underline"
+                  className="absolute left-3 right-3 -bottom-0.5 h-0.5 rounded-full bg-[var(--accent)]"
+                  transition={{ type: 'spring', stiffness: 400, damping: 32 }}
+                />
+              )}
             </button>
           ))}
         </nav>
@@ -73,7 +86,7 @@ export function Header() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 text-gray-600 hover:text-gray-900"
+          className="md:hidden p-2 text-[var(--ink-soft)] hover:text-[var(--ink)]"
           aria-label="Toggle menu"
         >
           <svg
@@ -95,25 +108,33 @@ export function Header() {
       </div>
 
       {/* Mobile Navigation */}
-      {mobileMenuOpen && (
-        <div className="md:hidden border-t border-gray-200/50 bg-white/95 backdrop-blur-md">
-          <nav className="flex flex-col px-6 py-4 space-y-3">
-            {navItems.map(({ id, label }) => (
-              <button
-                key={id}
-                onClick={() => scrollToSection(id)}
-                className={`text-left py-2 transition-colors ${
-                  activeSection === id
-                    ? 'text-teal-600'
-                    : 'text-gray-600 hover:text-gray-900'
-                }`}
-              >
-                {label}
-              </button>
-            ))}
-          </nav>
-        </div>
-      )}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25, ease: 'easeInOut' }}
+            className="md:hidden overflow-hidden border-t border-[var(--line)] bg-[var(--paper)]/95 backdrop-blur-md"
+          >
+            <nav className="flex flex-col px-6 py-4 space-y-1">
+              {navItems.map(({ id, label }) => (
+                <button
+                  key={id}
+                  onClick={() => scrollToSection(id)}
+                  className={`text-left py-2 transition-colors ${
+                    activeSection === id
+                      ? 'text-[var(--accent)]'
+                      : 'text-[var(--ink-soft)] hover:text-[var(--ink)]'
+                  }`}
+                >
+                  {label}
+                </button>
+              ))}
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
