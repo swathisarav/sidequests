@@ -119,13 +119,6 @@ export function AboutSection() {
               Hi, I'm Swathi - I write about my adventures and ideas, and collect the
               small wonders along the way.
             </p>
-            <p className="text-lg text-[var(--ink-soft)]">
-              You can find my portfolio{' '}
-              <a href="https://swathisarav.github.io/portfolio/" className="modern-link">
-                here
-              </a>
-              .
-            </p>
           </div>
         </Reveal>
       </div>
