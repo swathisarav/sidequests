@@ -55,7 +55,7 @@ export function Header() {
             &#10022;
           </span>
           <span className="font-display text-lg tracking-tight text-[var(--ink)]">
-            Swathi Saravanan
+            Swathi
           </span>
         </button>
 
