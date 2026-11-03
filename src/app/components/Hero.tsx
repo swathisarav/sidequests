@@ -89,7 +89,7 @@ export function Hero() {
         >
           <button
             onClick={scrollToBuilds}
-            className="group inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-7 py-3 text-sm font-semibold text-white shadow-[0_10px_30px_-8px_rgba(242,106,44,0.6)] transition-all duration-300 hover:bg-[var(--accent-deep)] hover:shadow-[0_14px_36px_-8px_rgba(242,106,44,0.7)]"
+            className="group inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-7 py-3 text-sm font-semibold text-black shadow-[0_10px_30px_-8px_rgba(31,127,130,0.45)] transition-all duration-300 hover:bg-[var(--accent-deep)] hover:text-white hover:shadow-[0_14px_36px_-8px_rgba(21,94,96,0.55)]"
           >
             Explore the builds
             <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>

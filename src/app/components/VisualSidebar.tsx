@@ -92,7 +92,7 @@ export function VisualSidebar() {
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
               {post.tag && (
-                <span className="absolute bottom-3 left-3 rounded-full bg-[var(--accent)] px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white shadow-sm">
+                <span className="absolute bottom-3 left-3 rounded-full bg-[var(--accent)] px-3 py-1 text-xs font-semibold uppercase tracking-wide text-black shadow-sm">
                   {post.tag}
                 </span>
               )}

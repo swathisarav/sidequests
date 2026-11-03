@@ -40,19 +40,24 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
   
-  /* Dark adventure palette */
-  --paper: #141A24;                     /* deep charcoal-blue background */
-  --paper-2: #1B222F;                   /* alternate section wash */
-  --card: #212B3A;                      /* elevated card surface */
-  --card-2: #26314250;                  /* translucent card */
-  --ink: #EEF1F6;                       /* near-white text */
-  --ink-soft: #A3ADBD;                  /* muted body text */
-  --ink-faint: #6C7686;                 /* captions / meta */
-  --line: rgba(255, 255, 255, 0.09);    /* hairline borders */
-  --accent: #F26A2C;                    /* trail orange */
-  --accent-deep: #D9531A;               /* orange hover */
-  --accent-soft: rgba(242, 106, 44, 0.16); /* orange tint */
-  --sage: #E0864B;                      /* secondary warm ember */
+  /* Brand palette: Black, Alabaster Grey and a deep Tropical Teal.
+     Neutral near-black surfaces instead of Space Indigo / Baltic Blue. */
+  --brand-black: #000000;
+  --brand-alabaster: #D9DCD6;
+  --brand-teal: #1F7F82;
+
+  --paper: #000000;                     /* Black page background */
+  --paper-2: #0E0F0F;                   /* neutral wash for alt sections */
+  --card: #161818;                      /* neutral charcoal card surface */
+  --card-2: #16181880;                  /* translucent card */
+  --ink: #D9DCD6;                       /* Alabaster Grey text */
+  --ink-soft: #A9ADA7;                  /* muted body text */
+  --ink-faint: #74776F;                 /* captions / meta */
+  --line: rgba(217, 220, 214, 0.1);     /* Alabaster hairline borders */
+  --accent: #1F7F82;                    /* deep Tropical Teal */
+  --accent-deep: #155E60;               /* deeper teal (hover) */
+  --accent-soft: rgba(31, 127, 130, 0.16); /* teal tint */
+  --sage: #155E60;                      /* secondary: deeper teal */
 
   /* Type tokens */
   --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
@@ -229,7 +234,7 @@
 }
 
 .modern-link:hover {
-  color: var(--accent-deep);
+  color: var(--ink);
   transform: translateY(-1px);
 }
 

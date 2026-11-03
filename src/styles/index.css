@@ -7,10 +7,10 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Text selection in the warm palette */
+/* Text selection in the brand palette */
 ::selection {
   background: var(--accent-soft);
-  color: var(--accent-deep);
+  color: var(--ink);
 }
 
 /* Film grain + soft vignette for an atmospheric, moody feel */
