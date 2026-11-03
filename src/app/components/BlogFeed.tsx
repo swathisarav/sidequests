@@ -47,17 +47,17 @@ const blogPosts: BlogPost[] = [
         time: '6:59 pm',
         text: 'The views are breathtaking, and so is the trek. All I want to do is eat, sleep, walk around and capture the scenes.',
       },
+      { time: '7:52 pm', text: 'I saw snow for the first time today.' },
+      { time: '7:52 pm', text: 'We made a snowman, Anushka and I.' },
+      { time: '7:54 pm', text: 'It was so much fun playing in the snow.' },
+      { time: '8:41 pm', text: 'Oh, the food here is sooo yum.' },
+      { time: '9:17 pm', text: "I've been taking your hoodie everywhere." },
       { time: '10:35 pm', text: "It's soo fcking cold now." },
       { time: '10:36 pm', text: "Hmm, idk what I'm going to do next in my life." },
       {
         time: '10:40 pm',
         text: "The trek leader thinks we're doing pretty well and suggested we do Mini Pangarchulla for summit day tomorrow. It's a little harder than the one we signed up for.",
       },
-      { time: '10:40 pm', text: 'I saw snow for the first time today.' },
-      { time: '10:40 pm', text: 'We made a snowman, Anushka and I.' },
-      { time: '10:41 pm', text: 'It was so much fun playing in the snow.' },
-      { time: '10:42 pm', text: "I've been taking your hoodie everywhere." },
-      { time: '10:43 pm', text: 'Oh, the food here is sooo yum, but also too gassy.' },
       { time: '10:43 pm', text: "It's summit day tomorrow. We wake up at 6." },
     ],
   },
@@ -68,9 +68,9 @@ function MessageThread({ messages }: { messages: Message[] }) {
     <div className="flex flex-col items-end gap-1.5">
       {messages.map((m, i) => {
         const prev = messages[i - 1];
-        const newBurst = !prev || prev.time.slice(-2) !== m.time.slice(-2) || gapMinutes(prev.time, m.time) >= 30;
+        const newBurst = !prev || prev.time.slice(-2) !== m.time.slice(-2) || gapMinutes(prev.time, m.time) >= 20;
         return (
-          <div key={i} className={`flex w-full flex-col items-end ${newBurst && i > 0 ? 'mt-4' : ''}`}>
+          <div key={i} className={`flex w-full flex-col items-end ${newBurst && i > 0 ? 'mt-7' : ''}`}>
             {newBurst && (
               <span className="mb-2 self-center text-[11px] font-medium uppercase tracking-[0.14em] text-[var(--ink-soft)]/70">
                 {m.time}
