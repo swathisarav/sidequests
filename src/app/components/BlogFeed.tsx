@@ -24,7 +24,7 @@ interface BlogPost {
 const blogPosts: BlogPost[] = [
   {
     id: 'himalayan-blues',
-    title: 'The Himalayan Blues',
+    title: 'Time in the Himalayas',
     date: '16 April',
     image:
       'https://itaesahinwgttopvkkip.supabase.co/storage/v1/object/public/SideQuest_Carousel/Kuari_pass.jpg',

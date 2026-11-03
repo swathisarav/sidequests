@@ -9,3 +9,5 @@ build/
 .vite/
 .next/
 .cache/
+# Local build output (the site deploys from docs/)
+dist/
