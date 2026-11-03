@@ -5,6 +5,10 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   base: "/sidequests/",   // 👈 MUST match your GitHub repo name
+  build: {
+    outDir: "docs",        // GitHub Pages serves the site from docs/
+    emptyOutDir: true,     // clear old builds out of docs/ first
+  },
   plugins: [
     // The React and Tailwind plugins are both required for Make, even if
     // Tailwind is not being actively used – do not remove them
