@@ -40,6 +40,13 @@ body::after {
 }
 
 /* Custom scrollbar styles */
+/* Firefox */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) transparent;
+}
+
+/* Chrome, Edge, Safari */
 .scrollbar-thin::-webkit-scrollbar {
   width: 6px;
 }
@@ -49,12 +56,12 @@ body::after {
 }
 
 .scrollbar-thin::-webkit-scrollbar-thumb {
-  background: var(--line);
+  background: var(--accent);
   border-radius: 3px;
 }
 
 .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-  background: var(--ink-faint);
+  background: var(--accent-deep);
 }
 
 /* A slow idle sway used by the scrapbook postcards */
