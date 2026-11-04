@@ -2,7 +2,8 @@ import { Header } from '@/app/components/Header';
 import { Hero } from '@/app/components/Hero';
 import { BlogFeed } from '@/app/components/BlogFeed';
 import { VisualSidebar } from '@/app/components/VisualSidebar';
-import { BuildsSection, AboutSection } from '@/app/components/ContentSections';
+import { AboutSection } from '@/app/components/ContentSections';
+import { CairnsSection } from '@/app/components/Cairns';
 import { Footer } from '@/app/components/Footer';
 import { ScrollProgress } from '@/app/components/ScrollProgress';
 
@@ -31,7 +32,7 @@ export default function App() {
       </div>
 
       {/* Additional sections */}
-      <BuildsSection />
+      <CairnsSection />
       <AboutSection />
 
       <Footer />

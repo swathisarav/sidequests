@@ -14,7 +14,7 @@ export function Hero() {
   }, []);
 
   const scrollToBuilds = () => {
-    const el = document.getElementById('builds');
+    const el = document.getElementById('cairns');
     if (el) window.scrollTo({ top: el.offsetTop - 80, behavior: 'smooth' });
   };
 
@@ -91,7 +91,7 @@ export function Hero() {
             onClick={scrollToBuilds}
             className="group inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-7 py-3 text-sm font-semibold text-black shadow-[0_10px_30px_-8px_rgba(31,127,130,0.45)] transition-all duration-300 hover:bg-[var(--accent-deep)] hover:text-white hover:shadow-[0_14px_36px_-8px_rgba(21,94,96,0.55)]"
           >
-            Explore the builds
+            Explore the cairns
             <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
           </button>
           <a
