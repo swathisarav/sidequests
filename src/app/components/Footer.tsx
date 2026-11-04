@@ -12,9 +12,6 @@ export function Footer() {
               “Twenty years from now you will be more disappointed by the things that you
               didn't do than by the ones you did do.”
             </p>
-            <cite className="mt-4 block text-sm not-italic uppercase tracking-[0.2em] text-[var(--ink-faint)]">
-              - H. Jackson Brown Jr.
-            </cite>
           </blockquote>
         </Reveal>
 
