@@ -11,6 +11,11 @@ interface VisualPost {
 
 const visualPosts: VisualPost[] = [
   {
+    id: '6',
+    image: `${import.meta.env.BASE_URL}media/hbg.jpg`,
+    caption: 'HBG adding pink to our lives',
+  },
+  {
     id: '1',
     image:
       'https://itaesahinwgttopvkkip.supabase.co/storage/v1/object/public/SideQuest_Carousel/netravati_me.png',
@@ -40,11 +45,6 @@ const visualPosts: VisualPost[] = [
     // Converted from iPhone HEIC to JPG so it shows in every browser
     image: `${import.meta.env.BASE_URL}media/leme.jpg`,
     caption: 'Bundled up at camp. It was soo cold.',
-  },
-  {
-    id: '6',
-    image: `${import.meta.env.BASE_URL}media/hbg.jpg`,
-    caption: 'HBG adding pink to our lives',
   },
 ];
 

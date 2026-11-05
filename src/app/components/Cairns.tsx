@@ -10,12 +10,12 @@ import { Reveal } from "@/app/components/Reveal";
 /* ------------------------------------------------------------------ */
 
 type RoomId = "vistas" | "campfire" | "summits" | "trail-maps";
-type Topic = "books" | "science" | "essays";
+type Topic = "guides" | "books" | "science";
 type Status = "in progress" | "finished";
 
 interface Creation {
   room: RoomId;
-  /** Writing only: which shelf inside Vistas */
+  /** Writing only: which shelf inside Trail Maps */
   topic?: Topic;
   title: string;
   description: string;
@@ -37,8 +37,8 @@ const rooms: Room[] = [
   {
     id: "vistas",
     name: "Vistas",
-    kind: "Writing",
-    blurb: "My views on books, science and ideas.",
+    kind: "Design",
+    blurb: "Sketches, UI and visual work.",
   },
   {
     id: "campfire",
@@ -55,15 +55,15 @@ const rooms: Room[] = [
   {
     id: "trail-maps",
     name: "Trail Maps",
-    kind: "Design",
-    blurb: "Sketches and visual work.",
+    kind: "Writing",
+    blurb: "Guides and explainers - things I've figured out, mapped out for you.",
   },
 ];
 
 const topics: { id: Topic; label: string }[] = [
+  { id: "guides", label: "Guides" },
   { id: "books", label: "On books" },
   { id: "science", label: "On science" },
-  { id: "essays", label: "Essays" },
 ];
 
 const creations: Creation[] = [
@@ -110,7 +110,7 @@ function roomFromHash(): RoomId | null {
 }
 
 export function CairnsSection() {
-  // Closed by default; a link like #vistas opens that room
+  // Closed by default; a link like #trail-maps opens that room
   const [active, setActive] = useState<RoomId | null>(() => roomFromHash());
   const [topic, setTopic] = useState<Topic | "all">("all");
 
@@ -152,7 +152,7 @@ export function CairnsSection() {
     .filter(
       (c) =>
         c.room === active &&
-        (active !== "vistas" || topic === "all" || c.topic === topic),
+        (active !== "trail-maps" || topic === "all" || c.topic === topic),
     )
     .sort(byNewest);
 
@@ -249,7 +249,7 @@ export function CairnsSection() {
                     </span>
                   </button>
 
-                  {active === "vistas" && (
+                  {active === "trail-maps" && (
                     <div className="flex flex-wrap gap-2">
                       {[{ id: "all" as const, label: "All" }, ...topics].map(
                         (t) => (

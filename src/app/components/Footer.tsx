@@ -1,4 +1,5 @@
 import { Reveal } from '@/app/components/Reveal';
+import { WaveMark } from '@/app/components/WaveMark';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -16,7 +17,7 @@ export function Footer() {
         </Reveal>
 
         <div className="flex flex-col items-center gap-2 text-sm text-[var(--ink-faint)]">
-          <span className="text-[var(--accent)]">&#10022;</span>
+          <WaveMark className="h-7 w-auto text-[var(--accent)]" />
           <span>© Swathi Saravanan {currentYear}. All rights reserved.</span>
         </div>
       </div>
