@@ -52,7 +52,7 @@ export function Header() {
           onClick={() => scrollToSection('sidequests')}
           className="group flex items-center gap-2 text-left"
         >
-          <WaveMark className="h-4 w-auto text-[var(--accent)] transition-transform duration-500 group-hover:-translate-x-0.5 group-hover:scale-110" />
+          <WaveMark className="h-6 w-auto text-[var(--accent)] transition-transform duration-500 group-hover:-translate-x-0.5 group-hover:scale-110" />
           <span className="font-display text-lg tracking-tight text-[var(--ink)]">
             Swathi
           </span>
