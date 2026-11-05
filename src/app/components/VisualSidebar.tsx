@@ -44,7 +44,7 @@ const visualPosts: VisualPost[] = [
   {
     id: '6',
     image: `${import.meta.env.BASE_URL}media/hbg.jpg`,
-    caption: 'Harrisburg, and the fountain turned pink.',
+    caption: 'HBG adding pink to our lives',
   },
 ];
 
