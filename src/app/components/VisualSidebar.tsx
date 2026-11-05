@@ -41,6 +41,11 @@ const visualPosts: VisualPost[] = [
     image: `${import.meta.env.BASE_URL}media/leme.jpg`,
     caption: 'Bundled up at camp. It was soo cold.',
   },
+  {
+    id: '6',
+    image: `${import.meta.env.BASE_URL}media/hbg.jpg`,
+    caption: 'Harrisburg, and the fountain turned pink.',
+  },
 ];
 
 export function VisualSidebar() {

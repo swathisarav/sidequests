@@ -5,6 +5,23 @@
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>Sidequests</title>
+
+      <!-- Google Analytics (GA4). Skipped on localhost so local previews aren't counted. -->
+      <script>
+        (function () {
+          var host = location.hostname;
+          if (host === 'localhost' || host === '127.0.0.1' || host === '' || host.endsWith('.local')) return;
+          var id = 'G-TBBNE2G13F';
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
+          document.head.appendChild(s);
+          window.dataLayer = window.dataLayer || [];
+          window.gtag = function () { dataLayer.push(arguments); };
+          gtag('js', new Date());
+          gtag('config', id);
+        })();
+      </script>
     </head>
 
     <body>

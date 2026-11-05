@@ -98,6 +98,12 @@ function formatDate(d: string) {
 const byNewest = (a: Creation, b: Creation) =>
   (b.date ?? "").localeCompare(a.date ?? "");
 
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
 function roomFromHash(): RoomId | null {
   const id = window.location.hash.replace("#", "");
   return rooms.some((r) => r.id === id) ? (id as RoomId) : null;
@@ -137,6 +143,8 @@ export function CairnsSection() {
     setActive(id);
     setTopic("all");
     history.replaceState(null, "", `#${id}`);
+    // Google Analytics: count which rooms visitors open (no-op on localhost)
+    window.gtag?.("event", "open_room", { room: id });
   };
 
   const room = rooms.find((r) => r.id === active);
