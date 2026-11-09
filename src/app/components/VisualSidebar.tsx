@@ -19,26 +19,26 @@ const visualPosts: VisualPost[] = [
     id: '1',
     image:
       'https://itaesahinwgttopvkkip.supabase.co/storage/v1/object/public/SideQuest_Carousel/netravati_me.png',
-    caption: 'Somewhere up high.',
+    caption: 'Somewhere up high',
   },
   {
     id: '2',
     image:
       'https://itaesahinwgttopvkkip.supabase.co/storage/v1/object/public/SideQuest_Carousel/Netravati.jpg',
-    caption: 'Netravati Peak - mountains & the calm they bring.',
+    caption: 'Netravati Peak: mountains & the calm they bring',
   },
   {
     id: '3',
     // Converted from the iPhone .MOV (HEVC) to H.264 MP4 so it plays in every browser
     video: `${import.meta.env.BASE_URL}media/kuari_summit.mp4`,
     image: `${import.meta.env.BASE_URL}media/kuari_summit_poster.jpg`,
-    caption: 'Kuari Pass summit.',
+    caption: 'Kuari Pass summit',
   },
   {
     id: '4',
     video: `${import.meta.env.BASE_URL}media/kuari_trek.mp4`,
     image: `${import.meta.env.BASE_URL}media/kuari_trek_poster.jpg`,
-    caption: 'Meet my travel companion at Kuari Pass - Tommy',
+    caption: 'Meet my travel companion at Kuari Pass: Tommy',
   },
   {
     id: '5',

@@ -116,7 +116,7 @@ export function AboutSection() {
         <Reveal delay={0.1}>
           <div className="max-w-3xl">
             <p className="font-display text-2xl md:text-3xl font-medium leading-snug text-[var(--ink)] mb-6">
-              Hi, I'm Swathi - I write about my musings, adventures, and ideas,
+              Hi, I'm Swathi. I write about my musings, adventures, and ideas,
               collecting small wonders along the way.
             </p>
           </div>
