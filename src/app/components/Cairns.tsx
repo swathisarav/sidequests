@@ -18,7 +18,7 @@ interface Creation {
   /** Writing only: which shelf inside Trail Maps */
   topic?: Topic;
   title: string;
-  description: string;
+  description?: string;
   /** "YYYY-MM" - used to sort newest first */
   date?: string;
   status?: Status;
@@ -56,7 +56,7 @@ const rooms: Room[] = [
     id: "trail-maps",
     name: "Trail Maps",
     kind: "Writing",
-    blurb: "Guides and explainers - things I've figured out, mapped out for you.",
+    blurb: "Guides and explainers: things I've figured out, mapped out for you.",
   },
 ];
 
@@ -70,9 +70,25 @@ const creations: Creation[] = [
   {
     room: "summits",
     title: "Guitar Log",
-    description: "A tool to plan and track your guitar practice.",
+    description: "Plan and track your guitar practice.",
+    date: "2026-02",
     href: "https://guitar-ilemnite.base44.app",
     cta: "Open it",
+  },
+  {
+    room: "summits",
+    title: "CasePartner",
+    description: "Practise case interviews out loud with an AI interviewer.",
+    date: "2026-07",
+    href: "https://github.com/swathisarav/CasePartner",
+    cta: "See the code",
+  },
+  {
+    room: "summits",
+    title: "Oratory",
+    description: "A tool to practice yapping.",
+    date: "2026-07",
+    status: "in progress",
   },
 ];
 
@@ -172,7 +188,7 @@ export function CairnsSection() {
             </h2>
           </div>
           <p className="mb-10 max-w-xl text-[var(--ink-soft)]">
-            Things I make along the way - stacked one stone at a time.
+            Things I make along the way, stacked one stone at a time.
           </p>
         </Reveal>
 
@@ -234,7 +250,7 @@ export function CairnsSection() {
                     <span className="font-display font-semibold text-[var(--ink)]">
                       {room.name}
                     </span>
-                    {" - "}
+                    {": "}
                     {room.blurb}
                   </p>
 
@@ -315,9 +331,13 @@ function CreationCard({ item }: { item: Creation }) {
       <h3 className="font-display text-lg font-semibold text-[var(--ink)] mb-2">
         {item.title}
       </h3>
-      <p className="text-sm text-[var(--ink-soft)] flex-1">
-        {item.description}
-      </p>
+      {item.description ? (
+        <p className="text-sm text-[var(--ink-soft)] flex-1">
+          {item.description}
+        </p>
+      ) : (
+        <div className="flex-1" />
+      )}
       {item.href && (
         <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-[var(--accent)]">
           {item.cta ?? "Take a look"}

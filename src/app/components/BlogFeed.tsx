@@ -13,6 +13,8 @@ interface BlogPost {
   content?: React.ReactNode;
   /** Renders the post as a thread of sent text messages */
   messages?: Message[];
+  /** Shows a phone-style "No Service" bar above the messages */
+  noSignal?: boolean;
   image?: string;
   imageAlt?: string;
   video?: string;
@@ -26,6 +28,7 @@ const blogPosts: BlogPost[] = [
     id: 'himalayan-blues',
     title: 'Time in the Himalayas',
     date: '16 April',
+    noSignal: true,
     image:
       'https://itaesahinwgttopvkkip.supabase.co/storage/v1/object/public/SideQuest_Carousel/Kuari_pass.jpg',
     imageAlt: 'Kuari Pass',
@@ -63,6 +66,41 @@ const blogPosts: BlogPost[] = [
     ],
   },
 ];
+
+/** Phone-style status icons: no signal and a low battery - up in the mountains */
+function PhoneStatus() {
+  return (
+    <div
+      role="img"
+      aria-label="No signal, low battery"
+      className="flex shrink-0 items-center gap-2 text-[var(--ink-soft)]"
+    >
+      {/* signal bars, all empty, with a slash through them */}
+      <svg viewBox="0 0 24 18" className="h-4 w-auto" aria-hidden="true">
+        {[0, 1, 2, 3].map((i) => (
+          <rect
+            key={i}
+            x={2 + i * 5}
+            y={13 - i * 4}
+            width="3"
+            height={4 + i * 4}
+            rx="1"
+            fill="currentColor"
+            opacity="0.3"
+          />
+        ))}
+        <line x1="2" y1="1.5" x2="21" y2="16.5" stroke="var(--accent)" strokeWidth="2" strokeLinecap="round" />
+      </svg>
+
+      {/* battery, nearly empty */}
+      <svg viewBox="0 0 28 14" className="h-3.5 w-auto" aria-hidden="true">
+        <rect x="1" y="1" width="22" height="12" rx="3" fill="none" stroke="currentColor" strokeWidth="1.5" opacity="0.6" />
+        <rect x="24.5" y="4.5" width="2.5" height="5" rx="1" fill="currentColor" opacity="0.6" />
+        <rect x="3" y="3" width="4" height="8" rx="1.5" fill="var(--accent)" />
+      </svg>
+    </div>
+  );
+}
 
 function MessageThread({ messages }: { messages: Message[] }) {
   return (
@@ -130,9 +168,12 @@ export function BlogFeed() {
                 </div>
               )}
 
-              <h3 className="font-display text-2xl font-semibold md:text-3xl text-[var(--ink)] mb-3">
-                {post.title}
-              </h3>
+              <div className="mb-3 flex items-center justify-between gap-4">
+                <h3 className="font-display text-2xl font-semibold md:text-3xl text-[var(--ink)]">
+                  {post.title}
+                </h3>
+                {post.noSignal && <PhoneStatus />}
+              </div>
 
               {post.messages ? (
                 <div className="mt-6 mb-2">
