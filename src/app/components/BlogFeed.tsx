@@ -1,5 +1,9 @@
+import { useEffect, useId, useRef, useState } from 'react';
 import { ImageWithFallback } from '@/app/components/figma/ImageWithFallback';
 import { Reveal } from '@/app/components/Reveal';
+
+/** Collapsed height of a post body before "Keep reading" (px) */
+const COLLAPSED_HEIGHT = 420;
 
 interface Message {
   time: string;
@@ -23,7 +27,9 @@ interface BlogPost {
   placeholder?: boolean;
 }
 
-const blogPosts: BlogPost[] = [
+// Newest first: add new posts at the top of this list.
+// The homepage shows the latest post; the rest live on the Field Notes page (#/field-notes).
+export const blogPosts: BlogPost[] = [
   {
     id: 'himalayan-blues',
     title: 'Time in the Himalayas',
@@ -65,7 +71,172 @@ const blogPosts: BlogPost[] = [
       { time: '10:43 pm', text: "It's summit day tomorrow. We wake up at 6." },
     ],
   },
+  {
+    id: 'notes-from-covid',
+    title: 'Notes from COVID',
+    date: 'May 2021',
+    content: (
+      <div className="space-y-8">
+        <blockquote className="border-l-2 border-[var(--accent)] pl-4">
+          <p className="font-display text-lg italic text-[var(--ink)]">
+            &ldquo;When you help others, help finds you.&rdquo;
+          </p>
+          <p className="mt-1 text-sm">Iroh, the Dragon of the West, The Last Airbender</p>
+        </blockquote>
+
+        <NoteSection title="About being a cloud">
+          <p>
+            I liked cloud gazing ever since I was a kid. When I was asked what I would be in my
+            next life, I replied &ldquo;A cloud&rdquo;. The kid wanted to be able to look at
+            everything from above, be a spectator, though short lived, a peaceful life.
+          </p>
+        </NoteSection>
+
+        <NoteSection title="For the monastic one (Ol.lives)....">
+          <p className="text-xs font-medium uppercase tracking-[0.14em] text-[var(--accent)]">Scene</p>
+          <p className="italic">
+            Sam, Eli, Vicky and Swa playing video games. Sasha, Sva and Amy on the couch on their
+            phones. Addie reading a book.
+          </p>
+          <p className="pt-2 text-xs font-medium uppercase tracking-[0.14em] text-[var(--accent)]">Script</p>
+          <p>
+            <span className="font-semibold text-[var(--ink)]">Sva</span>{' '}
+            <span className="italic">(in a state of trance)</span>: maybe I&apos;ll become a monk
+          </p>
+          <p className="italic">(Still looking at the phone)</p>
+          <p className="italic">(Imagines a monk kicking into the air)</p>
+          <p>
+            <span className="font-semibold text-[var(--ink)]">The rest</span>{' '}
+            <span className="italic">
+              (look away from what they are doing... silence... imagine the bald headed monastic
+              sitting under a tree.... start laughing)
+            </span>
+          </p>
+          <ul className="list-disc pl-5 italic">
+            <li>Highlight the shaved head with lighting and make it shine</li>
+          </ul>
+        </NoteSection>
+
+        <NoteSection title="About the prison">
+          <p>Contento, Anger are all locked up in the prison called mind.</p>
+          <p>Anger however escapes from the prison every now and then.</p>
+          <p>And Grief locks him up again.</p>
+          <p>
+            One day Contento leaves his prison and frees Inspiration, Curiosity and Wonder. And
+            they all get to work for their dreams. Then Society shows them Despair, and Depression
+            starts to rule their world.
+          </p>
+        </NoteSection>
+
+        <NoteSection title="Pitter Patter">
+          <p className="font-display text-[var(--ink)] leading-loose">
+            The slow pitter patter stops
+            <br />
+            Swathing the land in stillness;
+            <br />
+            A thunderous roar
+            <br />
+            Breaks the shackles
+            <br />
+            And frees the human;
+            <br />
+            Then falls the rain of hope
+            <br />
+            Into the barren land
+            <br />
+            Nourishing the latent seeds
+            <br />
+            To grow into the tree of discoveries.
+          </p>
+        </NoteSection>
+
+        <NoteSection title="About the best job in a utopian world">
+          <p>
+            The world is a wonderful place filled with wonderful people doing wonderful things. And
+            the best thing amongst them all is telling the tales of the world that have been passed
+            down to us by our previous generations to the ones who will rule the world tmrw.
+          </p>
+        </NoteSection>
+
+        <NoteSection title="The Process of Planning">
+          <ol className="space-y-2">
+            <li>
+              <span className="font-semibold text-[var(--ink)]">Step 1</span> Create a plan. It
+              need not be complete or be perfect. It could be a very rough plan. But the important
+              thing is to have a skeleton to work on. It&apos;d be more convenient to not add too
+              many details.
+            </li>
+            <li>
+              <span className="font-semibold text-[var(--ink)]">Step 2</span> Analyse the plan and
+              list its flaws and its missing components.
+            </li>
+            <li>
+              <span className="font-semibold text-[var(--ink)]">Step 3</span> Adjust the work to
+              add all the missing elements and modify it.
+            </li>
+            <li>
+              <span className="font-semibold text-[var(--ink)]">Step 4</span> Go over the plan
+              again.
+            </li>
+          </ol>
+          <p>Follow the steps above until you get a satisfactory result.</p>
+          <p>
+            <span className="font-semibold text-[var(--ink)]">Final step</span> Make note of the
+            mistakes and tips learnt.
+          </p>
+        </NoteSection>
+
+        <NoteSection title="Evolution of Science">
+          <p>
+            The mortality of the human life is essential for the evolution of science. It is
+            through constant change that science takes forms.
+          </p>
+        </NoteSection>
+
+        <NoteSection title="Luck">
+          <p>They weren&apos;t lucky, they just never thought they were unlucky.</p>
+        </NoteSection>
+
+        <NoteSection title="Meaning of Life">
+          <p>
+            Life is full of wonders for one, and full of dread for another. What determines how
+            life is? In my opinion, it depends on one&apos;s attitude to life and the freedom one
+            has to make their decision free from influence.
+          </p>
+          <p>
+            Life has no meaning, but it is not meaningless. One has the ability to give life the
+            meaning that they desire.
+          </p>
+          <p>
+            What is the absolute meaning, you ask? To that I may say, I&apos;m not sure if it
+            exists or not, but I&apos;m looking.
+          </p>
+        </NoteSection>
+
+        <NoteSection title="Luck and Probability">
+          <p>
+            The world works on principles of probability. And luck is but a special case of
+            probability, when all outcomes are equally likely to happen.
+          </p>
+        </NoteSection>
+
+        <NoteSection title="Theory of Relativity">
+          <p>The laws of physics are true in all inertial frames of reference.</p>
+        </NoteSection>
+      </div>
+    ),
+  },
 ];
+
+/** One short note inside a post: a small heading and its text */
+function NoteSection({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <section>
+      <h4 className="mb-3 font-display text-lg font-semibold text-[var(--ink)]">{title}</h4>
+      <div className="space-y-3">{children}</div>
+    </section>
+  );
+}
 
 /** Phone-style status icons: no signal and a low battery - up in the mountains */
 function PhoneStatus() {
@@ -137,7 +308,89 @@ function gapMinutes(a: string, b: string) {
   return toMin(b) - toMin(a);
 }
 
-export function BlogFeed() {
+/** Caps a post body at COLLAPSED_HEIGHT with a fade and an expand toggle.
+ *  The toggle only appears when the content is actually taller than the cap. */
+function ExpandablePostBody({ children }: { children: React.ReactNode }) {
+  const contentRef = useRef<HTMLDivElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const [expanded, setExpanded] = useState(false);
+  const [fullHeight, setFullHeight] = useState(0);
+  const id = useId();
+
+  useEffect(() => {
+    const el = contentRef.current;
+    if (!el) return;
+    const measure = () => setFullHeight(el.scrollHeight);
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
+  const overflows = fullHeight > COLLAPSED_HEIGHT + 40;
+  const maxHeight = !overflows || expanded ? fullHeight || undefined : COLLAPSED_HEIGHT;
+
+  const toggle = () => {
+    if (expanded) {
+      // Bring the post back into view so collapsing doesn't strand the reader below it
+      const top = wrapperRef.current?.closest('article')?.getBoundingClientRect().top ?? 0;
+      if (top < 0) wrapperRef.current?.closest('article')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    setExpanded((v) => !v);
+  };
+
+  return (
+    <div ref={wrapperRef}>
+      <div
+        id={id}
+        className="relative overflow-hidden transition-[max-height] duration-500 ease-in-out"
+        style={{ maxHeight }}
+      >
+        <div ref={contentRef}>{children}</div>
+        {overflows && (
+          <div
+            aria-hidden="true"
+            className={`pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[var(--card)] to-transparent transition-opacity duration-300 ${
+              expanded ? 'opacity-0' : 'opacity-100'
+            }`}
+          />
+        )}
+      </div>
+
+      {overflows && (
+        <div className="mt-4 flex justify-center">
+          <button
+            type="button"
+            onClick={toggle}
+            aria-expanded={expanded}
+            aria-controls={id}
+            className="inline-flex items-center gap-2 rounded-full border border-[var(--line)] px-4 py-2 text-xs font-medium uppercase tracking-[0.14em] text-[var(--accent)] transition-colors hover:border-[var(--accent)]/60 hover:bg-[var(--accent-soft)]"
+          >
+            {expanded ? 'Show less' : 'Keep reading'}
+            <svg
+              viewBox="0 0 12 12"
+              className={`h-3 w-3 transition-transform duration-300 ${expanded ? 'rotate-180' : ''}`}
+              aria-hidden="true"
+            >
+              <path d="M2 4.5 6 8.5 10 4.5" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export const FIELD_NOTES_HASH = '#/field-notes';
+
+/**
+ * `limit` shows only the newest N posts (homepage) with a link to the full list.
+ * Without it, every post is shown (the Field Notes page).
+ */
+export function BlogFeed({ limit, standalone }: { limit?: number; standalone?: boolean }) {
+  const posts = limit ? blogPosts.slice(0, limit) : blogPosts;
+  const hidden = blogPosts.length - posts.length;
+
   return (
     <div>
       <Reveal>
@@ -147,11 +400,19 @@ export function BlogFeed() {
             Field Notes
           </h2>
           <span className="mb-1 flex-1 border-b border-dashed border-[var(--line)]" />
+          {standalone && (
+            <a
+              href="#sidequests"
+              className="text-sm font-medium text-[var(--accent)] transition-colors hover:text-[var(--ink)]"
+            >
+              ← Back home
+            </a>
+          )}
         </div>
       </Reveal>
 
       <div className="space-y-8 md:space-y-10">
-        {blogPosts.map((post, i) => (
+        {posts.map((post, i) => (
           <Reveal key={post.id} delay={i * 0.08}>
             <article className="group relative overflow-hidden rounded-2xl border border-[var(--line)] bg-[var(--card)] p-6 md:p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--accent)]/40 hover:shadow-[0_24px_50px_-24px_rgba(0,0,0,0.7)]">
               {post.date && (
@@ -175,15 +436,19 @@ export function BlogFeed() {
                 {post.noSignal && <PhoneStatus />}
               </div>
 
-              {post.messages ? (
-                <div className="mt-6 mb-2">
-                  <MessageThread messages={post.messages} />
-                </div>
-              ) : (
-                <div className="text-[var(--ink-soft)] leading-relaxed mb-6">
-                  {post.content}
-                </div>
-              )}
+
+              {/* Only the text collapses; photos and video below stay visible */}
+              <ExpandablePostBody>
+                {post.messages ? (
+                  <div className="mt-6 mb-2">
+                    <MessageThread messages={post.messages} />
+                  </div>
+                ) : (
+                  <div className="text-[var(--ink-soft)] leading-relaxed mb-6">
+                    {post.content}
+                  </div>
+                )}
+              </ExpandablePostBody>
 
               {post.video && (
                 <div className="mt-6 mb-6 overflow-hidden rounded-xl bg-black">
@@ -199,7 +464,7 @@ export function BlogFeed() {
               )}
 
               {post.image && (
-                <div className="overflow-hidden rounded-xl">
+                <div className="mt-6 overflow-hidden rounded-xl">
                   <ImageWithFallback
                     src={post.image}
                     alt={post.imageAlt ?? post.title}
@@ -211,6 +476,23 @@ export function BlogFeed() {
           </Reveal>
         ))}
       </div>
+
+      {hidden > 0 && (
+        <Reveal>
+          <a
+            href={FIELD_NOTES_HASH}
+            className="group mt-8 flex items-center justify-between rounded-2xl border border-dashed border-[var(--line)] px-6 py-5 transition-colors hover:border-[var(--accent)]/50"
+          >
+            <span className="font-display text-lg text-[var(--ink)]">
+              All field notes
+              <span className="ml-2 text-sm text-[var(--ink-soft)]">
+                {hidden} more {hidden === 1 ? 'post' : 'posts'}
+              </span>
+            </span>
+            <span className="text-[var(--accent)] transition-transform duration-300 group-hover:translate-x-1">→</span>
+          </a>
+        </Reveal>
+      )}
     </div>
   );
 }

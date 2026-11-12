@@ -31,6 +31,12 @@ export function Header() {
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
+    if (!element) {
+      // Not on the homepage (e.g. the Field Notes page): go home to that section
+      window.location.hash = sectionId;
+      setMobileMenuOpen(false);
+      return;
+    }
     if (element) {
       const offset = 80;
       const elementPosition = element.offsetTop - offset;

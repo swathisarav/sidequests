@@ -188,7 +188,7 @@ export function CairnsSection() {
             </h2>
           </div>
           <p className="mb-10 max-w-xl text-[var(--ink-soft)]">
-            Things I make along the way, stacked one stone at a time.
+            Things I make along the way, stacking one stone at a time.
           </p>
         </Reveal>
 
