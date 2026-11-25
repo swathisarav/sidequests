@@ -129,7 +129,7 @@ export const blogPosts: BlogPost[] = [
         </NoteSection>
 
         <NoteSection title="Pitter Patter">
-          <p className="font-display text-[var(--ink)] leading-loose">
+          <p className="font-display leading-loose">
             The slow pitter patter stops
             <br />
             Swathing the land in stillness;
