@@ -3,7 +3,7 @@ import { Hero } from '@/app/components/Hero';
 import { BlogFeed, FIELD_NOTES_HASH } from '@/app/components/BlogFeed';
 import { VisualSidebar } from '@/app/components/VisualSidebar';
 import { AboutSection } from '@/app/components/ContentSections';
-import { CairnsSection } from '@/app/components/Cairns';
+import { BasecampSection } from '@/app/components/basecamp/Basecamp';
 import { Footer } from '@/app/components/Footer';
 import { ScrollProgress } from '@/app/components/ScrollProgress';
 import { useEffect, useState } from 'react';
@@ -18,7 +18,7 @@ export default function App() {
   }, []);
   const onFieldNotes = hash === FIELD_NOTES_HASH;
 
-  // On switching views, jump to the top, or to the section named in the hash (e.g. #cairns)
+  // On switching views, jump to the top, or to the section named in the hash (e.g. #basecamp)
   useEffect(() => {
     const id = hash.replace('#', '');
     const el = !onFieldNotes && id ? document.getElementById(id) : null;
@@ -66,7 +66,7 @@ export default function App() {
       </div>
 
       {/* Additional sections */}
-      <CairnsSection />
+      <BasecampSection />
       <AboutSection />
 
       <Footer />

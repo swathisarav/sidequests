@@ -15,6 +15,17 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  // Dev speed: three.js is only imported lazily (the Basecamp scene), so Vite would otherwise
+  // discover it mid-session, re-bundle and reload the page. Bundle it up front instead.
+  optimizeDeps: {
+    include: ['three', '@react-three/fiber', '@react-three/drei', 'motion/react', 'react-dom/client'],
+  },
+  server: {
+    // Compile the app's own files as soon as the dev server starts, not on the first page load.
+    warmup: {
+      clientFiles: ['./src/main.tsx', './src/app/App.tsx', './src/app/components/*.tsx', './src/app/components/basecamp/*.tsx'],
+    },
+  },
   resolve: {
     alias: {
       // Alias @ to the src directory
